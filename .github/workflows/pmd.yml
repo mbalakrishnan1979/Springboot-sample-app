@@ -33,9 +33,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pmd-report
-          path: target/site/pmd.html
+          path: "**/target/site/pmd.html"
 
       - name: Debug - List target folder
         run: ls -R target
+
+      - name: Debug - List all generated files
+        run: |
+          echo "Listing target directory"
+          find . -type f -name "pmd*.html"
+
 
 
