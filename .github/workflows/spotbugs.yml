@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: spotbugs-report
-          path: "target/spotbugsXml.xml"
+          path: "target/spotbugs-report/spotbugs.html"
 
       - name: Debug generated files
         run: find . -type f -name "spotbugs*"
