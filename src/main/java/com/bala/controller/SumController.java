@@ -13,4 +13,6 @@ public class SumController {
         double result = request.getNumber1() + request.getNumber2();
         return new SumResponse(result);
     }
+
+    private void method() {}
 }
