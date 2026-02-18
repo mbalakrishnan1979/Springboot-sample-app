@@ -21,18 +21,15 @@ jobs:
           java-version: '21'
           cache: 'maven'
 
-      - name: Build SpotBugs
+      - name: Build and Run SpotBugs
         run: mvn -B clean verify
-
-      - name: Run SpotBugs
-        run: mvn -B spotbugs:spotbugs spotbugs:check 
 
       - name: Upload SpotBugs Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: spotbugs-report
-          path: "target/spotbugs.html"
+          path: "target/site/spotbugs.html"
 
       - name: Debug spotbugs files
         run: find . -name "spotbugs*"
