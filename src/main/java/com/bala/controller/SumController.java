@@ -14,5 +14,4 @@ public class SumController {
         return new SumResponse(result);
     }
 
-    private void method() {}
 }
