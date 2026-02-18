@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pmd-report
-          path: "**/target/site/pmd.html"
+          path: "target/reports/pmd.html"
 
       - name: Debug - List target folder
         run: ls -R target
