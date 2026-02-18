@@ -13,12 +13,6 @@
     	<module name="MethodName">
 		<property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
 	</module>
-    <module name="LineLength">
-        <property name="max" value="120"/>
-        <property name="ignorePattern" value="^package.*|^import.*"/>
-    </module>
-
-    <module name="SuppressWarningsFilter"/>
 
     <module name="UnusedImports">
        <property name="severity" value="error"/>
@@ -29,6 +23,12 @@
     </module>
 
     </module>
+    <module name="LineLength">
+        <property name="max" value="120"/>
+        <property name="ignorePattern" value="^package.*|^import.*"/>
+    </module>
+
+    <module name="SuppressWarningsFilter"/>
 
 </module>
 
