@@ -10,13 +10,13 @@
         <module name="UnusedImports"/>
         <module name="NeedBraces"/>
         <module name="FinalLocalVariable"/>
+    	<module name="MethodName">
+		<property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+	</module>
     </module>
     <module name="LineLength">
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*"/>
-    </module>
-    <module name="MethodName">
-        <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
     </module>
 
     <module name="SuppressWarningsFilter"/>
