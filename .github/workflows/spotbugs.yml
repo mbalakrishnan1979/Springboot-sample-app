@@ -1,4 +1,4 @@
-name: Checkstyle Analysis
+name: SpotBugs Analysis
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main", "develop" ]
 
 jobs:
-  checkstyle:
+  spotbugs:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,16 +21,13 @@ jobs:
           java-version: '21'
           cache: 'maven'
 
-      - name: Compile project
-        run: mvn -B clean compile
+      - name: Build and Run SpotBugs
+        run: mvn -B clean verify
 
-      - name: Run Checkstyle
-        run: mvn -B checkstyle:checkstyle checkstyle:check
-
-      - name: Upload Checkstyle Report
+      - name: Upload SpotBugs Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: checkstyle-report
-          path: "target/reports/checkstyle.html"
+          name: spotbugs-report
+          path: "target/reports/spotbugs.html"
 
