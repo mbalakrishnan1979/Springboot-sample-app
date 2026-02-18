@@ -21,8 +21,11 @@ jobs:
           java-version: '21'
           cache: 'maven'
 
-      - name: Build and Run SpotBugs
+      - name: Build SpotBugs
         run: mvn -B clean verify
+
+      - name: Run SpotBugs
+        run: mvn -B spotbugs:spotbugs spotbugs:check 
 
       - name: Upload SpotBugs Report
         if: always()
