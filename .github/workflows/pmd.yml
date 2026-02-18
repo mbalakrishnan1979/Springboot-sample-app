@@ -35,13 +35,3 @@ jobs:
           name: pmd-report
           path: "target/reports/pmd.html"
 
-      - name: Debug - List target folder
-        run: ls -R target
-
-      - name: Debug - List all generated files
-        run: |
-          echo "Listing target directory"
-          find . -type f -name "pmd*.html"
-
-
-
