@@ -31,3 +31,7 @@ jobs:
           name: spotbugs-report
           path: "**/target/site/spotbugs.html"
 
+      - name: Debug spotbugs files
+        run: find . -name "spotbugs*"
+
+
