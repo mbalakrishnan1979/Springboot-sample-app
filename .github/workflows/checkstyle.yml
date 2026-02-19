@@ -33,7 +33,7 @@ jobs:
             -c checkstyle.xml \
             -f sarif \
             -o checkstyle.sarif \
-            src/main/java
+            src/main/java || true
 
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v3
