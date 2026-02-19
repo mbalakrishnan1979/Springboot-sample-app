@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class SumController {
+    public static int[] numbers = {1, 2, 3};
 
     @PostMapping("/sum")
     public SumResponse calculateSum(@RequestBody SumRequest request) {
