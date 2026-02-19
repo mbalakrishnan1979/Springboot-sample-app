@@ -35,7 +35,7 @@ jobs:
 
       - name: Convert SpotBugs XML to SARIF
         run: |
-          sarif multitool convert \
+          sarif convert \
           --tool "SpotBugs" \
           --output target/spotbugs.sarif \
           $(find . -name "spotbugsXml.xml")
