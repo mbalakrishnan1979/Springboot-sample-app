@@ -32,6 +32,11 @@ jobs:
         run: mvn -B spotbugs:spotbugs spotbugs:check
         continue-on-error: true
 
+      - name: Debug SARIF
+        run: |
+          echo "Checking SARIF contents..."
+          cat target/spotbugs.sarif | head -n 50
+
       - name: List target directory
         run: ls -R target
 
