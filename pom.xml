@@ -79,7 +79,8 @@
 			<effort>Max</effort>
 			<threshold>Low</threshold>
 			<!--			<failOnError>true</failOnError>   -->
-			<sarifOutput>true</sarifOutput>
+			<xmlOutput>true</xmlOutput>
+			<sarifOutput>false</sarifOutput>
 			<!--<xmlOutput>false</xmlOutput>
 			<htmlOutput>true</htmlOutput>
 			<outputDirectory>${project.build.directory}/spotbugs-report</outputDirectory>

@@ -27,21 +27,16 @@ jobs:
       - name: Build & Run Analysis
         run: mvn -B clean verify
 
+      - name: Convert SpotBugs XML to SARIF
+        run: |
+          dotnet tool install --global Sarif.Multitool
+          ~/.dotnet/tools/sarif multitool convert \
+            --tool SpotBugs \
+            --output target/spotbugs.sarif \
+          target/spotbugsXml.xml
+
       - name: Upload SpotBugs SARIF
-        if: always()
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: "target/spotbugsSarif.json"
-
-      - name: Upload PMD SARIF
-        if: always()
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: "target/pmd.sarif"
-
-      - name: Upload Checkstyle SARIF
-        if: always()
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: "target/checkstyle-result.sarif"
+          sarif_file: "target/spotbugs.sarif"
 
