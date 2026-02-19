@@ -30,7 +30,7 @@ jobs:
       - name: Run Checkstyle (Generate SARIF)
         run: |
           java -jar checkstyle.jar \
-            -c config/checkstyle/checkstyle.xml \
+            -c checkstyle.xml \
             -f sarif \
             -o checkstyle.sarif \
             src/main/java
