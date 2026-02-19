@@ -36,11 +36,11 @@ jobs:
       - name: Convert SpotBugs XML to SARIF
         run: |
           sarif convert \
-          --tool "SpotBugs" \
+          --tool "Spotbugs" \
           --output target/spotbugs.sarif \
           $(find . -name "spotbugsXml.xml")
 
-      - name: Upload SpotBugs SARIF
+      - name: Upload Spotbugs SARIF
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: "target/spotbugs.sarif"
