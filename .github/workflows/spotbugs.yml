@@ -35,21 +35,3 @@ jobs:
         with:
           fail-build: false
 
-      - name: Download Checkstyle
-        run: |
-          curl -L -o checkstyle.jar \
-          https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.4/checkstyle-10.12.4-all.jar
-
-      - name: Run Checkstyle (SARIF)
-        run: |
-          java -jar checkstyle.jar \
-          -c config/checkstyle/checkstyle.xml \
-          -f sarif \
-          -o checkstyle.sarif \
-          src/main/java
-
-      - name: Upload SARIF
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: checkstyle.sarif
-
