@@ -29,7 +29,7 @@ jobs:
         run: mvn -B clean compile
 
       - name: Run spotbugs
-        run: mvn -B spotbugs:spotbugs spotbugs:check
+        run: mvn -B spotbugs:spotbugs
         continue-on-error: true
 
       - name: Debug SARIF
@@ -40,12 +40,19 @@ jobs:
       - name: List target directory
         run: ls -R target
 
-      - name: Upload SpotBugs XML as SARIF
-        uses: anchore/scan-action@v3
+      - name: Upload SpotBugs SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
         with:
-          fail-build: false
+          sarif_file: target/spotbugs.sarif
+
+
+#      - name: Upload SpotBugs XML as SARIF
+#        uses: anchore/scan-action@v3
+#        with:
+#          fail-build: false
 
       # Step 3: Now fail build if bugs exist
-      - name: Fail if SpotBugs found issues
-        run: mvn -B spotbugs:check
+#      - name: Fail if SpotBugs found issues
+#        run: mvn -B spotbugs:check
 

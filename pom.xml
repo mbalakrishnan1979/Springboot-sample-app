@@ -61,12 +61,11 @@
 			<effort>Max</effort>
 			<threshold>Low</threshold>
 			<!--			<failOnError>true</failOnError>   -->
-			<xmlOutput>true</xmlOutput>
-			<sarifOutput>false</sarifOutput>
+			<xmlOutput>false</xmlOutput>
+			<sarifOutput>true</sarifOutput>
 			<!--<xmlOutput>false</xmlOutput>
-			<htmlOutput>true</htmlOutput>
+			<htmlOutput>true</htmlOutput> -->
 			<outputDirectory>${project.build.directory}/spotbugs-report</outputDirectory>
-			-->
 		</configuration>
 
 
