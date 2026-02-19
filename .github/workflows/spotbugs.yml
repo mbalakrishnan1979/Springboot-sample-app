@@ -24,8 +24,11 @@ jobs:
           java-version: 17 
           cache: maven
 
-      - name: Build & Run Analysis
-        run: mvn -B clean verify
+      - name: Build project
+        run: mvn -B clean compile
+
+      - name: Run spotbugs 
+        run: mvn -B spotbugs:spotbugs spotbugs:check
 
       - name: List target directory
         run: ls -R target
