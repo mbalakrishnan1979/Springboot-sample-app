@@ -65,7 +65,7 @@
 			<sarifOutput>true</sarifOutput>
 			<!--<xmlOutput>false</xmlOutput>
 			<htmlOutput>true</htmlOutput> -->
-			<outputDirectory>${project.build.directory}/spotbugs-report</outputDirectory>
+			<!--<outputDirectory>${project.build.directory}/spotbugs-report</outputDirectory> -->
 		</configuration>
 
 
