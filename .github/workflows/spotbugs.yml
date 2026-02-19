@@ -46,6 +46,6 @@ jobs:
           fail-build: false
 
       # Step 3: Now fail build if bugs exist
-#      - name: Fail if SpotBugs found issues
-#        run: mvn -B spotbugs:check
+      - name: Fail if SpotBugs found issues
+        run: mvn -B spotbugs:check
 
