@@ -32,3 +32,9 @@ jobs:
         with:
           fail-build: false
 
+      - name: Upload Checkstyle SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: "target/checkstyle-result.sarif"
+
