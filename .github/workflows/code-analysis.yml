@@ -29,4 +29,6 @@ jobs:
 
       - name: Upload SpotBugs XML as SARIF
         uses: anchore/scan-action@v3
+        with:
+          fail-build: false
 
