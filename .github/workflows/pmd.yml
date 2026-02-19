@@ -1,0 +1,39 @@
+name: PMD Code Scanning
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  pmd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build project
+        run: mvn -B clean compile
+
+      - name: Run PMD and generate SARIF
+        run: |
+          mvn -B pmd:pmd \
+            -Dpmd.format=sarif \
+            -Dpmd.outputFile=target/pmd.sarif
+
+      - name: Upload PMD SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: target/pmd.sarif
+
