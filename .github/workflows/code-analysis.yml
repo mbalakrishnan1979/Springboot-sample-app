@@ -27,21 +27,6 @@ jobs:
       - name: Build & Run Analysis
         run: mvn -B clean verify
 
-      - name: Install SARIF Multitool
-        run: dotnet tool install --global Sarif.Multitool
-
-      - name: Add dotnet tools to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-
-      - name: Convert SpotBugs XML to SARIF
-        run: |
-          sarif convert \
-          --tool "Spotbugs" \
-          --output target/spotbugs.sarif \
-          $(find . -name "spotbugsXml.xml")
-
-      - name: Upload Spotbugs SARIF
-        uses: github/codeql-action/upload-sarif@v4
-        with:
-          sarif_file: "target/spotbugs.sarif"
+      - name: Upload SpotBugs XML as SARIF
+        uses: anchore/scan-action@v3
 
