@@ -1,4 +1,4 @@
-name: Static Code Analysis
+name: Spotbugs 
 
 on:
   push:
@@ -10,7 +10,8 @@ permissions:
   security-events: write
 
 jobs:
-  analyze:
+  spotbugs:
+    name: Run spotbugs
     runs-on: ubuntu-latest
 
     steps:
