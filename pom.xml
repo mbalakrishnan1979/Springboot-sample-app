@@ -21,9 +21,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!--    <configuration>
+    <configuration>
 	    <configLocation>checkstyle/checkstyle.xml</configLocation>
-    </configuration> -->
+    </configuration>
 
 
     <dependencies>
