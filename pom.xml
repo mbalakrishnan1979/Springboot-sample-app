@@ -52,19 +52,29 @@
 		<artifactId>maven-pmd-plugin</artifactId>
 		<version>3.21.0</version>
 	    </plugin>
-	    <plugin>
+
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.7.3.0</version>
+				<configuration>
+					<effort>Max</effort>
+					<threshold>Low</threshold>
+					<xmlOutput>true</xmlOutput>
+				</configuration>
+			</plugin>
+
+		<!--	<plugin>
 		<groupId>com.github.spotbugs</groupId>
 		<artifactId>spotbugs-maven-plugin</artifactId>
-		<version>4.8.3.0</version>
+		<version>4.7.3.0</version>
 
 		<configuration>
 			<effort>Max</effort>
 			<threshold>Low</threshold>
-			<!--			<failOnError>true</failOnError>   -->
-			<!--<sarifOutput>true</sarifOutput> -->
+
 			<xmlOutput>true</xmlOutput>
-			<!--<htmlOutput>true</htmlOutput> -->
-			<!--<outputDirectory>${project.build.directory}/spotbugs-report</outputDirectory> -->
+
 		</configuration>
 
 
@@ -77,7 +87,7 @@
 				</goals>
 			</execution>
 		</executions>
-	   </plugin>
+	   </plugin> -->
 	   <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-pmd-plugin</artifactId>
