@@ -32,19 +32,26 @@ jobs:
         run: mvn -B spotbugs:spotbugs
         continue-on-error: true
 
-      - name: Debug SARIF
+      # Step 2: Download SpotBugs CLI
+      - name: Download SpotBugs CLI
         run: |
-          echo "Checking SARIF contents..."
-          cat target/spotbugs.sarif | head -n 50
+          wget https://github.com/spotbugs/spotbugs/releases/download/4.8.3/spotbugs-4.8.3.tgz
+          tar -xzf spotbugs-4.8.3.tgz
 
-      - name: List target directory
-        run: ls -R target
+      # Step 3: Convert XML → SARIF using CLI
+      - name: Convert to SARIF
+        run: |
+          spotbugs-4.8.3/bin/spotbugs \
+            -sarif \
+            -output target/spotbugs.sarif \
+            -exitcode \
+            target/classes
 
       - name: Upload SpotBugs SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: target/spotbugsSarif.json
+          sarif_file: target/spotbugs.sarif
 
 
 #      - name: Upload SpotBugs XML as SARIF
