@@ -37,6 +37,7 @@ jobs:
         run: |
           wget https://github.com/spotbugs/spotbugs/releases/download/4.8.3/spotbugs-4.8.3.tgz
           tar -xzf spotbugs-4.8.3.tgz
+          chmod +x spotbugs-4.8.3/bin/spotbugs
 
       # Step 3: Convert XML → SARIF using CLI
       - name: Convert to SARIF
