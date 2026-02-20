@@ -26,12 +26,24 @@ jobs:
           cache: maven
 
       - name: Build project
-        run: mvn clean verify
+        run: mvn clean compile
+
+      - name: Build dependency classpath
+        run: mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
+
+      - name: Run SpotBugs
+        run: |
+          CP=$(cat cp.txt)
+          spotbugs-4.7.3/bin/spotbugs \
+            -auxclasspath "$CP" \
+            -sarif \
+            -output target/spotbugs.sarif \
+            target/classes
         continue-on-error: true
 
-      - name: Run spotbugs
-        run: mvn -B spotbugs:spotbugs
-        continue-on-error: true
+  #    - name: Run spotbugs
+  #      run: mvn -B spotbugs:spotbugs
+  #      continue-on-error: true
 
       # Step 2: Download SpotBugs CLI
       - name: Download SpotBugs CLI
