@@ -23,19 +23,15 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Build project
-        run: mvn -B clean package
-
-      - name: Run SpotBugs (GitHub Action)
-        uses: spotbugs/spotbugs-github-action@v2
-        with:
-          path: target/classes
-          format: sarif
-          output: spotbugs.sarif
+      - name: Build + Run SpotBugs
+        run: mvn -B clean verify
         continue-on-error: true
 
-      - name: Upload SpotBugs SARIF
+      - name: Verify SARIF
+        run: ls -l target/
+
+      - name: Upload SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: spotbugs.sarif
+          sarif_file: target/spotbugs.sarif

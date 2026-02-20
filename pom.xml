@@ -60,9 +60,11 @@
 				<configuration>
 					<effort>Max</effort>
 					<threshold>Low</threshold>
-					<xmlOutput>true</xmlOutput>
+					<sarifOutput>true</sarifOutput>
+					<sarifOutputFile>${project.build.directory}/spotbugs.sarif</sarifOutputFile>
 				</configuration>
 			</plugin>
+
 
 		<!--	<plugin>
 		<groupId>com.github.spotbugs</groupId>
