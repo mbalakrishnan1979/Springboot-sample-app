@@ -35,14 +35,14 @@ jobs:
       # Step 2: Download SpotBugs CLI
       - name: Download SpotBugs CLI
         run: |
-          wget https://github.com/spotbugs/spotbugs/releases/download/4.8.3/spotbugs-4.8.3.tgz
-          tar -xzf spotbugs-4.8.3.tgz
-          chmod +x spotbugs-4.8.3/bin/spotbugs
+          wget https://github.com/spotbugs/spotbugs/releases/download/4.7.3/spotbugs-4.7.3.tgz
+          tar -xzf spotbugs-4.7.3.tgz
+          chmod +x spotbugs-4.7.3/bin/spotbugs
 
       # Step 3: Convert XML → SARIF using CLI
       - name: Convert to SARIF
         run: |
-          spotbugs-4.8.3/bin/spotbugs \
+          spotbugs-4.7.3/bin/spotbugs \
             -sarif \
             -output target/spotbugs.sarif \
             -exitcode \
