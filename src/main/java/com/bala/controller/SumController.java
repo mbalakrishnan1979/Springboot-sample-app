@@ -15,7 +15,7 @@ public class SumController {
         return new SumResponse(result);
     }
 
-
+/*
     private int getLength(String input) {
         if (input == null) {
             System.out.println("Input is null");
@@ -23,5 +23,6 @@ public class SumController {
         // SpotBugs will flag possible NullPointerException
         return input.length();
     }
+*/
 
 }
