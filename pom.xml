@@ -53,7 +53,7 @@
 		<version>3.21.0</version>
 	    </plugin>
 
-			<plugin>
+		<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>4.7.3.0</version>
@@ -71,85 +71,59 @@
 						<version>1.12.0</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-
-
-		<!--	<plugin>
-		<groupId>com.github.spotbugs</groupId>
-		<artifactId>spotbugs-maven-plugin</artifactId>
-		<version>4.7.3.0</version>
-
-		<configuration>
-			<effort>Max</effort>
-			<threshold>Low</threshold>
-
-			<xmlOutput>true</xmlOutput>
-
-		</configuration>
-
-
-		<executions>
-			<execution>
-				<phase>verify</phase>
-				<goals>
-					<goal>spotbugs</goal>
-					<goal>check</goal>
-				</goals>
-			</execution>
-		</executions>
-	   </plugin> -->
+       </plugin>
 	   <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-pmd-plugin</artifactId>
-		<version>3.22.0</version>
-		<configuration>
-			<failOnViolation>true</failOnViolation>
-			<minimumPriority>3</minimumPriority>
-			<printFailingErrors>true</printFailingErrors>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-pmd-plugin</artifactId>
+			<version>3.22.0</version>
+			<configuration>
+				<failOnViolation>true</failOnViolation>
+				<minimumPriority>3</minimumPriority>
+				<printFailingErrors>true</printFailingErrors>
 
-			<!-- Generate reports -->
-			<linkXRef>false</linkXRef>
-			<formats>
-				<format>sarif</format>
-			</formats>
+				<!-- Generate reports -->
+				<linkXRef>false</linkXRef>
+				<formats>
+					<format>sarif</format>
+				</formats>
 
-			<rulesets>
-				<ruleset>pmd-ruleset.xml</ruleset>
-			</rulesets>
-		</configuration>
+				<rulesets>
+					<ruleset>pmd-ruleset.xml</ruleset>
+				</rulesets>
+			</configuration>
 
-		<executions>
-			<execution>
-			      	<id>pmd-check</id>
-			      	<phase>verify</phase>
-				<goals>
-					<goal>pmd</goal> 
-					<goal>check</goal>
-				</goals>
-			</execution>
-		</executions>
+			<executions>
+				<execution>
+						<id>pmd-check</id>
+						<phase>verify</phase>
+					<goals>
+						<goal>pmd</goal>
+						<goal>check</goal>
+					</goals>
+				</execution>
+			</executions>
 	   </plugin> 
 	   <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-checkstyle-plugin</artifactId>
-		<version>3.3.1</version>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.3.1</version>
 
-		<configuration>
-			<!--			<failOnViolation>true</failOnViolation>  
-			<outputFileFormat>sarif</outputFileFormat> -->
-		</configuration>
+			<configuration>
+				<!--			<failOnViolation>true</failOnViolation>
+				<outputFileFormat>sarif</outputFileFormat> -->
+			</configuration>
 
-		<executions>
-			<execution>
-				<phase>verify</phase>
-				<goals>
-					<goal>check</goal>
-				</goals>
-			</execution>
-		</executions>
+			<executions>
+				<execution>
+					<phase>verify</phase>
+					<goals>
+						<goal>check</goal>
+					</goals>
+				</execution>
+			</executions>
 	   </plugin>
 
-        </plugins>
+	  </plugins>
     </build>
 
 </project>
