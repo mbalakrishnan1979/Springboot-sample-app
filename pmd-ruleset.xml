@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Custom Best Practices"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+                             http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>
+        Custom Best Practices rules for Spring Boot microservices
+    </description>
+
+    <!-- Import full best practices category -->
+    <rule ref="category/java/bestpractices.xml"/>
+
+    <!-- Import error prone rules -->
+    <rule ref="category/java/errorprone.xml"/>
+
+    <!-- Import security rules -->
+    <rule ref="category/java/security.xml"/>
+
+    <!-- Exclude rules that are too noisy -->
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod">
+        <exclude-pattern>.*/generated/.*</exclude-pattern>
+    </rule>
+
+    <rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>
+
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock">
+        <properties>
+            <property name="allowCommentedBlocks" value="true"/>
+        </properties>
+    </rule>
+
+</ruleset>
