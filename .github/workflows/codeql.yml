@@ -24,6 +24,11 @@ jobs:
       - name: Build
         run: mvn -B clean package
 
+      - name: Validate SARIF structure
+        run: |
+          head -n 50 target/*.sarif
+
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
