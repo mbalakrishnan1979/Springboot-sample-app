@@ -61,6 +61,7 @@
 					<effort>Max</effort>
 					<threshold>Low</threshold>
 					<sarifOutput>true</sarifOutput>
+					<excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>
 					<!--<sarifOutputFile>${project.build.directory}/spotbugs.sarif</sarifOutputFile> -->
 				</configuration>
 				<dependencies>
@@ -111,7 +112,7 @@
 			<formats>
 				<format>sarif</format>
 			</formats>
-			
+
 			<rulesets>
 				<ruleset>pmd-ruleset.xml</ruleset>
 			</rulesets>
