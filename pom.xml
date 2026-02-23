@@ -102,11 +102,19 @@
 		<artifactId>maven-pmd-plugin</artifactId>
 		<version>3.22.0</version>
 		<configuration>
-			<!--		<failOnViolation>true</failOnViolation> -->
+			<failOnViolation>true</failOnViolation>
+			<minimumPriority>3</minimumPriority>
 			<printFailingErrors>true</printFailingErrors>
+
+			<!-- Generate reports -->
+			<linkXRef>false</linkXRef>
 			<formats>
 				<format>sarif</format>
 			</formats>
+			
+			<rulesets>
+				<ruleset>pmd-ruleset.xml</ruleset>
+			</rulesets>
 		</configuration>
 
 		<executions>
