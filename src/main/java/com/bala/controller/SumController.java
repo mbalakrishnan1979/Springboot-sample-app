@@ -11,7 +11,7 @@ public class SumController {
 
     @PostMapping("/sum")
     public SumResponse calculateSum(@RequestBody SumRequest request) {
-        double result = request.getNumber1() + request.getNumber2();
+        final double result = request.getNumber1() + request.getNumber2();
         return new SumResponse(result);
     }
 
